@@ -97,7 +97,7 @@ fi
 
 check() {
 if ! ls -1 &packages;/${KERNEL_V%%-*}/ | grep -q "${PACKAGE}" ; then
-  LAT_PACKAGE="$(wget -qO- https://api.github.com/repos/ich777/unraid-ugreenleds-driver/releases/tags/${KERNEL_V} | jq -r '.assets[].name' | grep "${PACKAGE}" | grep -E -v '\.md5$' | sort -V | tail -1)"
+  LAT_PACKAGE="$(wget -qO- https://api.github.com/repos/marzed19/unraid-ugreenleds-driver/releases/tags/${KERNEL_V} | jq -r '.assets[].name' | grep "${PACKAGE}" | grep -E -v '\.md5$' | sort -V | tail -1)"
   echo
   echo "----------------Downloading UGREEN LED Driver, please wait...!----------------"
   echo "----------This could take some time, please don't close this window!----------"
@@ -117,7 +117,7 @@ install() {
 # Define Variables
 KERNEL_V="$(uname -r)"
 PACKAGE="ugreen_leds"
-DL_URL="https://github.com/ich777/unraid-ugreenleds-driver/releases/download/$KERNEL_V"
+DL_URL="https://github.com/marzed19/unraid-ugreenleds-driver/releases/download/$KERNEL_V"
 
 # Create package directory for running Kernel
 if [ ! -d "&packages;/${KERNEL_V%%-*}" ]; then
